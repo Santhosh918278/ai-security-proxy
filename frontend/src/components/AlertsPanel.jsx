@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-const WS_URL = "ws://ai-security-proxy.onrender.com";
-const API_BASE = "https://ai-security-proxy.onrender.com";
+const WS_URL = "wss://ai-security-proxy.onrender.com";
+const API_BASE = "https://ai-security-proxy.onrender.com"
 
 export default function AlertsPanel() {
   const [connected, setConnected] = useState(false);
