@@ -30,18 +30,17 @@ const server = http.createServer(app);
 initWebSocket(server);
 
 async function start() {
-  try {
-    await connectMongo();
-  } catch (err) {
-    console.error("⚠️  MongoDB connection failed:", err.message);
-    console.error("    The server will still start, but logging will not work until Mongo is reachable.");
-  }
-
   server.listen(config.port, () => {
     console.log(`✅ AI Security Proxy running at http://localhost:${config.port}`);
     console.log(`   WebSocket live-alert feed on the same port.`);
-    console.log(`   Run 'npm run init-db' first if you haven't set up Postgres tables yet.`);
   });
+
+  connectMongo()
+    .then(() => console.log("✅ MongoDB connected"))
+    .catch((err) => {
+      console.error("⚠️  MongoDB connection failed:", err.message);
+      console.error("    The server will still run, but logging will not work until Mongo is reachable.");
+    });
 }
 
 start();
