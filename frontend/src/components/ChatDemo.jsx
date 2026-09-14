@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://ai-security-proxy.onrender.com";
 // Paste the API key you got from POST /admin/bootstrap here, or wire up a login flow later.
 const API_KEY = "sk_proxy_4253c619f69acd4bb50441546fff7cca16dbe6b6ad02cad5";
 

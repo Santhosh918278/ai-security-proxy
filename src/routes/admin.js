@@ -39,8 +39,8 @@ router.post("/admin/bootstrap", async (req, res) => {
 
     res.json({ message: "Bootstrap complete. Save this key — it won't be shown again.", apiKey: keyResult.rows[0].key_value });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: "Bootstrap failed." });
+    console.error("Bootstrap error - full details:", err);
+    res.status(500).json({ error: "Bootstrap failed.", details: err.message });
   }
 });
 
